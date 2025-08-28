@@ -7,3 +7,7 @@ class Nikola:
         else:
             self.name = f'Я не {name}, а Николай'
         self.age = age
+        
+a = Nikola('Максим', 165)
+print(a.age)
+print(a.name)
