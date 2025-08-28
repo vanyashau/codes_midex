@@ -9,3 +9,6 @@ class Soda:
         else:
             print('Обычная газировка')
             return self.additio
+
+a = Soda('Экстракт Кока-Колы')
+print(a.show_my_drink())
