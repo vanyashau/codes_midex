@@ -79,4 +79,4 @@ b = 'Яблоко'
 c = RealString('Apple')
 d = 'Apple'
 
-print(a >= d)
+print(a == b)

@@ -15,5 +15,5 @@ class TriangleChecker:
         else:
             return 'Жаль, но из этого треугольник не сделать'
 
-a = TriangleChecker(0,0,0)
+a = TriangleChecker(5, 2)
 print(a.is_triangle())
