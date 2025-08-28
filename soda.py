@@ -4,11 +4,9 @@ class Soda:
 
     def show_my_drink(self):
         if self.addition != None:
-            print(f'Газировка и {self.addition}')
-            return self.additio
+            return f'Газировка и {self.addition}'
         else:
-            print('Обычная газировка')
-            return self.additio
+            return 'Обычная газировка'
 
-a = Soda('Экстракт Кока-Колы')
+a = Soda()
 print(a.show_my_drink())

@@ -14,7 +14,7 @@ class KgToPounds:
         if isinstance(new_kg, (int, float)):
             self.__kg = new_kg
         else:
-            raise ValueError('Килограммы задаются только числами')
+            print('Килограммы задаются только числами')
         
 a = KgToPounds(5)
 print(a.kg)
