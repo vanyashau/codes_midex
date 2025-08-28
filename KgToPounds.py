@@ -1,6 +1,6 @@
 class KgToPounds:
-    def __init__(self, kg):
-        self.kg = kg
+    def __init__(self, __kg):
+        self.kg = __kg
 
     def to_pounds(self):
         return self.__kg * 2.205
@@ -15,3 +15,10 @@ class KgToPounds:
             self.__kg = new_kg
         else:
             raise ValueError('Килограммы задаются только числами')
+        
+a = KgToPounds(5)
+print(a.kg)
+print(a.to_pounds())
+a.kg = 10
+print(a.kg)
+print(a.to_pounds())
