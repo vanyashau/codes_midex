@@ -2,10 +2,6 @@ class Human:
     default_name = 'NoName'
     default_age = 18
 
-    @staticmethod
-    def default_info():
-        print(f'Базовое имя: {Human.default_name}, базовый возраст: {Human.default_age}')
-
     def __init__(self, name = default_name, age = default_age):
         self.name = name
         self.age = age
@@ -16,14 +12,18 @@ class Human:
         house_info = self.__house if self.__house else 'Нет дома'
         print(f'Имя: {self.name}\Возраст: {self.age}\Деньги на счету: {self.__money}\Дом: {house_info}')
 
-    def earn_money(self, amount=100000):
-        self.__money += amount
-        print(f'{self.name} внёс на счёт {amount}. Баланс после прибавки: {self.__money}')
+    @staticmethod
+    def default_info():
+        print(f'Базовое имя: {Human.default_name}, базовый возраст: {Human.default_age}')
 
     def __make_deal(self, house, price):
         self.__money -= price
         self.__house = house
         print(f'{self.name} купил дом за {price}.')
+
+    def earn_money(self, amount=100000):
+        self.__money += amount
+        print(f'{self.name} внёс на счёт {amount}. Баланс после прибавки: {self.__money}')
 
     def buy_house(self, house, discount):
         final_price = house.final_price(discount)
@@ -31,14 +31,6 @@ class Human:
             self.__make_deal(house, final_price)
         else:
             print(f'У вас нет денег для покупки дома! Нужно {final_price}, а у вас всего лишь {self.__money}.')
-
-    @property
-    def house(self):
-        return self.__house
-
-    @property
-    def money(self):
-        return self.__money
 
 
 class House:
