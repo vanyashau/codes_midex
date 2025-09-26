@@ -1,27 +1,44 @@
+import string
 class Alphabet:
     def __init__(self, lang, letters):
         self.lang = lang
-        self.letters = list(letters)
+        self.letters = letters
 
     def print(self):
-        print(''.join(self.letters))
+        print(self.letters)
 
     def letters_num(self):
         return len(self.letters)
 
+
 class EngAlphabet(Alphabet):
-    __letters_num = 26
+    __letters_num = 0
 
     def __init__(self):
-        self.lang = 'En'
-        self.letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        super().__init__('En', string.ascii_uppercase)
+        EngAlphabet.__letters_num = len(self.letters)
 
-    def is_en_letter(self, letter):
-        return letter.upper() in self.letters
+    def if_en_letter(self, letter):
+        if letter in self.letters:
+            return True
+        return False
 
     def letters_num(self):
         return EngAlphabet.__letters_num
 
     @staticmethod
     def example():
-        return 'Londond is a capital of Great Britain'
+        return "Hello, World!"
+
+
+eng_alphabet = EngAlphabet()
+
+eng_alphabet.print()
+
+print(eng_alphabet.letters_num())
+
+print(eng_alphabet.if_en_letter('F'))
+
+print(eng_alphabet.if_en_letter('Щ'))
+
+print(EngAlphabet.example())    

@@ -4,33 +4,33 @@ class Human:
 
     @staticmethod
     def default_info():
-        print(f"Default name: {Human.default_name}, Default age: {Human.default_age}")
+        print(f'Базовое имя: {Human.default_name}, базовый возраст: {Human.default_age}')
 
-    def __init__(self, name=default_name, age=default_age):
+    def __init__(self, name = default_name, age = default_age):
         self.name = name
         self.age = age
         self.__money = 0
         self.__house = None
 
     def info(self):
-        house_info = self.__house if self.__house else "No house"
-        print(f"Name: {self.name}\nAge: {self.age}\nMoney: {self.__money}\nHouse: {house_info}")
+        house_info = self.__house if self.__house else 'Нет дома'
+        print(f'Имя: {self.name}\Возраст: {self.age}\Деньги на счету: {self.__money}\Дом: {house_info}')
 
     def earn_money(self, amount=100000):
         self.__money += amount
-        print(f"{self.name} earned {amount} money! Current balance: {self.__money}")
+        print(f'{self.name} внёс на счёт {amount}. Баланс после прибавки: {self.__money}')
 
     def __make_deal(self, house, price):
         self.__money -= price
         self.__house = house
-        print(f"{self.name} bought a house for {price}.")
+        print(f'{self.name} купил дом за {price}.')
 
     def buy_house(self, house, discount):
         final_price = house.final_price(discount)
         if self.__money >= final_price:
             self.__make_deal(house, final_price)
         else:
-            print(f"Not enough money to buy the house! Need {final_price}, have {self.__money}.")
+            print(f'У вас нет денег для покупки дома! Нужно {final_price}, а у вас всего лишь {self.__money}.')
 
     @property
     def house(self):
@@ -39,6 +39,7 @@ class Human:
     @property
     def money(self):
         return self.__money
+
 
 class House:
     def __init__(self, area, price):
@@ -49,11 +50,12 @@ class House:
         return self._price * (1 - discount / 100)
 
     def __repr__(self):
-        return f"House(area={self._area}, price={self._price})"
+        return f'Дом (площадь = {self._area}, стоимость = {self._price})'
+
 
 class SmallHouse(House):
     def __init__(self, price):
         super().__init__(area=40, price=price)
 
     def __repr__(self):
-        return f"SmallHouse(area=40, price={self._price})"
+        return f'Маленький дом (площадь = 40, цена = {self._price})'
